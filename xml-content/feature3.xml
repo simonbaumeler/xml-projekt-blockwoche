@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/feature1/feature1.xsl"?>
+<page>
+    <key>feature3</key>
+    <title>Feature 3</title>
+
+    <content>
+        <text>Feature 3</text>
+    </content>
+</page>

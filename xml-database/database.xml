@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<energie-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="database.xsd">
+
+    <energyTypes>
+        <energyType key="electricity" display_value="Elektrizität" />
+        <energyType key="gas" display_value="Gas" />
+    </energyTypes>
+
+    <participants>
+        <participant>
+            <name>HSLU Energy Factory</name>
+            <startDatetime>2024-02-07T10:00:00.000</startDatetime>
+
+            <address>
+                <firstname>Max</firstname>
+                <middlename>Ferdinand</middlename>
+                <lastname>Mustermann</lastname>
+                <street>Musterstrasse</street>
+                <housenumber>1</housenumber>
+                <city>Rotkreuz</city>
+                <state>Zug</state>
+                <country>Switzerland</country>
+            </address>
+
+            <energyTransactions>
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="-100" ratePerUnit="0.05" timestamp="2024-02-08T19:00:00.000" totalPrice="-5" />
+            </energyTransactions>
+        </participant>
+        <!--<participant>
+            <name>FHNW Energy Factory</name>
+            <startDatetime>2024-02-07T10:00:00.000</startDatetime>
+
+            <address>
+                <firstname>Max</firstname>
+                <middlename>Ferdinand</middlename>
+                <lastname>Mustermann</lastname>
+                <street>Musterstrasse</street>
+                <housenumber>1</housenumber>
+                <city>Rotkreuz</city>
+                <state>Zug</state>
+                <country>Switzerland</country>
+            </address>
+
+            <energyTransactions>
+                <energyTransaction energyType="electricity" amount="-3" ratePerUnit="0.013" timestamp="2024-02-08T14:00:00.000" totalPrice="-0.039" />
+                <energyTransaction energyType="electricity" amount="7" ratePerUnit="0.013" timestamp="2024-02-08T14:00:00.000" totalPrice="0.091" />
+                <energyTransaction energyType="electricity" amount="-24" ratePerUnit="0.013" timestamp="2024-02-08T14:00:00.000" totalPrice="-0.312" />
+            </energyTransactions>
+        </participant>-->
+    </participants>
+
+</energie-data>

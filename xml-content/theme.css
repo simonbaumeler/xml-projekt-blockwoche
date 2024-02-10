@@ -1,0 +1,200 @@
+/* Global */
+* {
+    box-sizing: border-box !important;
+}
+
+/* General body styling */
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background: linear-gradient(270deg, #0e008a, #1708bb, #000077);
+    background-size: 400% 400%;
+    animation: ElectricAnimation 4s ease infinite;
+}
+
+/* Background animation */
+@keyframes ElectricAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+/* Container for the white box */
+main {
+    background-color: white;
+    border-start-start-radius: 15px;
+    border-start-end-radius: 15px;
+    color: black;
+    width: 90%;
+    max-width: 900px;
+    min-height: 500px;
+    max-height: 95vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+/* Header (title and subtitle) */
+header {
+    width: 100%;
+    border-start-start-radius: 15px;
+    border-start-end-radius: 15px;
+    border-color: black;
+    padding: 10px 0;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+/* Header Title */
+header > :nth-child(1) {
+    font-weight: bold;
+    font-size: xx-large;
+    margin: 0 0 5px 0;
+}
+
+/* Header Sub-Title */
+header > :nth-child(2) {
+    font-weight: normal;
+    font-size: large;
+    margin: 0;
+}
+
+/* Navbar */
+nav {
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 6px 0;
+    display: flex;
+    justify-content: space-around;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+/* Nav container elements */
+nav > * {
+    flex: 1;
+    text-align: center;
+    padding: 5px 0;
+}
+
+/* Nav links */
+nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Nav links while hovering */
+nav a:hover {
+    color: gray;
+}
+
+/* Nav links while active site */
+nav a.active {
+    color: blue;
+}
+
+/* Main Content */
+section {
+    width: 100%;
+    padding: 0 20px;
+    flex: 1;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    padding: 3px 0;
+    margin-top: 4px;
+    border-top: 2px solid black;
+    text-align: center;
+}
+
+.participant-card {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid black;
+}
+
+.participant-card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.participant-card-header > .title {
+    font-size: large;
+    font-weight: bold;
+}
+
+.participant-card-header .owner {
+    
+}
+
+.participant-card-header .date {
+    
+}
+
+.participant-card-body {
+    border-top: 1px solid black;
+    margin-top: 5px;
+    padding-top: 10px;
+}
+
+.energy-transaction-table {
+    width: 100%;
+    text-align: left;
+}
+
+.energy-transaction-table > thead > th, .energy-transaction-table > tfoot > tr > th  {
+    padding: 7px 0;
+}
+
+/* Responsive adjustments for smaller & mobile devices */
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+    }
+
+    main {
+        width: 90%;
+    }
+
+    header {
+        font-size: large;
+    }
+
+    nav {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    nav a {
+        margin-bottom: 10px;
+    }
+
+    main > :nth-child(2) {
+        padding: 5px;
+    }
+    
+}

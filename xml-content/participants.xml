@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/participants/participants.xsl"?>
+<page>
+    <key>participants</key>
+    <title>Participants</title>
+
+    <content>
+        <text>This site shows all available participants.</text>
+    </content>
+</page>
