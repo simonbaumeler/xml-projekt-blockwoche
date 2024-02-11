@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xml-content/report/report-fo.xsl"?>
+
 <energie-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="database.xsd">
 
     <energyTypes>
@@ -10,7 +12,6 @@
         <participant>
             <name>HSLU Energy Factory</name>
             <startDatetime>2024-02-07T10:00:00.000</startDatetime>
-
             <address>
                 <firstname>Max</firstname>
                 <middlename>Ferdinand</middlename>
@@ -39,10 +40,9 @@
                 <energyTransaction energyType="electricity" amount="-100" ratePerUnit="0.05" timestamp="2024-02-08T19:00:00.000" totalPrice="-5" />
             </energyTransactions>
         </participant>
-        <!--<participant>
-            <name>FHNW Energy Factory</name>
+        <participant>
+            <name>HSLU Energy Factory</name>
             <startDatetime>2024-02-07T10:00:00.000</startDatetime>
-
             <address>
                 <firstname>Max</firstname>
                 <middlename>Ferdinand</middlename>
@@ -55,11 +55,21 @@
             </address>
 
             <energyTransactions>
-                <energyTransaction energyType="electricity" amount="-3" ratePerUnit="0.013" timestamp="2024-02-08T14:00:00.000" totalPrice="-0.039" />
-                <energyTransaction energyType="electricity" amount="7" ratePerUnit="0.013" timestamp="2024-02-08T14:00:00.000" totalPrice="0.091" />
-                <energyTransaction energyType="electricity" amount="-24" ratePerUnit="0.013" timestamp="2024-02-08T14:00:00.000" totalPrice="-0.312" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="-100" ratePerUnit="0.05" timestamp="2024-02-08T19:00:00.000" totalPrice="-5" />
             </energyTransactions>
-        </participant>-->
+        </participant>
     </participants>
-
 </energie-data>

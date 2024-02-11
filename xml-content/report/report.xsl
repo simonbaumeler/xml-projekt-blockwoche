@@ -17,6 +17,7 @@
                     <section>
                         <h1><xsl:value-of select="title"/></h1>
                         <xsl:apply-templates select="//content/text"/>
+                        <xsl:apply-templates select="//content/button"/>
                     </section>
 
                     <xsl:apply-templates select="/" mode="footer"/>
@@ -29,6 +30,12 @@
         <p>
             <xsl:value-of select="."/>
         </p>
+    </xsl:template>
+
+    <xsl:template match="button">
+        <button>
+            <xsl:value-of select="title"/>
+        </button>
     </xsl:template>
 
 </xsl:stylesheet>

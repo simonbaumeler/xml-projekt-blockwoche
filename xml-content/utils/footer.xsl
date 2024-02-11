@@ -3,7 +3,7 @@
 
     <xsl:template match="/" mode="footer">
         <footer>
-            <small>Copyright © by Team XY - 2024. Alle Rechte vorbehalten.</small>
+            <small>Copyright © by Team 01 - 2024. Alle Rechte vorbehalten.</small>
         </footer>
     </xsl:template>
 

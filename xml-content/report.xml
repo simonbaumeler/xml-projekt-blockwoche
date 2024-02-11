@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/report/report.xsl"?>
+<page>
+    <key>report</key>
+    <title>Report generieren</title>
+
+    <content>
+        <text>Sie möchten Daten aus EPAZS exportieren?</text>
+        <text>Genau dafür existiert unser Report Feature.</text>
+        <text>Wählen Sie unten ganz einfach die zu exportierenden Daten aus und klicken Sie auf Report generieren um ein PDF der gewählten Daten zu erhalten.</text>
+        <button>
+            <title>PDF Generieren</title>
+        </button>
+    </content>
+</page>
