@@ -69,7 +69,7 @@
                 <fo:table-column column-width="6cm"/>
                 <fo:table-column column-width="2cm"/>
                 <fo:table-column column-width="4cm"/>
-                <fo:table-column column-width="3cm"/>
+                <fo:table-column column-width="2cm"/>
                 <fo:table-column column-width="3cm"/>
                 <fo:table-column column-width="3cm"/>
 
@@ -152,6 +152,7 @@
                 </fo:table-body>
             </fo:table>
         </fo:block>
+        <fo:block border-top-style="solid" text-align="center"></fo:block>
     </xsl:template>
 
     <xsl:template match="/energie-data/participants/participant/address">
