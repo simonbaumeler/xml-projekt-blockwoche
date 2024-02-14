@@ -1,7 +1,9 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
-import {fileURLToPath} from "url";
+import libxmljs from "libxmljs2";
+import { editDataFactory } from "./editData.mjs";
+import { fileURLToPath } from "url";
 import request from "request";
 import saxonJs from "saxon-js";
 
@@ -65,6 +67,9 @@ app.get("/pdf-report", (req, res) => {
         if (error) throw new Error(error);
     }).pipe(res);
 });
+
+const editData = await editDataFactory();
+app.post("/edit", (req, res, next) => editData(req, res).catch(next));
 
 //Start server
 app.listen(port, () => {
