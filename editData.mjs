@@ -32,8 +32,11 @@ async function editData(req, res, xsd) {
   if (req.body.name) {
     participant.node("name", req.body.name);
   }
-  if (req.body.startDatetime) {
-    participant.node("startDatetime", req.body.startDatetime);
+  if (req.body.startDate && req.body.startTime) {
+    participant.node(
+      "startDatetime",
+      `${req.body.startDate}T${req.body.startTime}:00.000`
+    );
   }
 
   const address = participant.node("address");
