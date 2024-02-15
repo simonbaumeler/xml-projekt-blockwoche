@@ -28,20 +28,44 @@ export async function editDataFactory() {
 async function editData(req, res, xsd) {
   const doc = new libxmljs.Document();
 
-  doc
-    .node("participant")
-    .node("name", req.body.name)
-    .parent()
-    .node("address")
-    .node("firstname", req.body.firstname)
-    .parent()
-    .node("middlename", req.body.middlename)
-    .parent();
+  const participant = doc.node("participant");
+  if (req.body.name) {
+    participant.node("name", req.body.name);
+  }
+  if (req.body.startDatetime) {
+    participant.node("startDatetime", req.body.startDatetime);
+  }
 
-  if (!xsd.validate(doc)) {
-    const errors = xsd.validationErrors;
-    xsd.validationErrors = [];
-    console.log("moin", errors);
+  const address = participant.node("address");
+  if (req.body.firstname) {
+    address.node("firstname", req.body.firstname);
+  }
+  if (req.body.middlename) {
+    address.node("middlename", req.body.middlename);
+  }
+  if (req.body.lastname) {
+    address.node("lastname", req.body.lastname);
+  }
+  if (req.body.street) {
+    address.node("street", req.body.street);
+  }
+  if (req.body.housenumber) {
+    address.node("housenumber", req.body.housenumber);
+  }
+  if (req.body.city) {
+    address.node("city", req.body.city);
+  }
+  if (req.body.state) {
+    address.node("state", req.body.state);
+  }
+  if (req.body.country) {
+    address.node("country", req.body.country);
+  }
+
+  participant.node("energyTransactions");
+
+  if (!doc.validate(xsd)) {
+    console.log("moin", doc.validationErrors);
     res.status(500).send("Data is invalid");
     return;
   }
