@@ -7,7 +7,7 @@
     <content>
         <text>Sie möchten Daten aus EPAZS exportieren?</text>
         <text>Genau dafür existiert unser Report Feature.</text>
-        <text>Wählen Sie unten ganz einfach die zu exportierenden Daten aus und klicken Sie auf Report generieren um ein PDF der gewählten Daten zu erhalten.</text>
+        <text>Klicken Sie auf Report generieren um ein PDF mit allen verfügbaren Daten zu erhalten.</text>
         <button>
             <title>PDF Generieren</title>
         </button>

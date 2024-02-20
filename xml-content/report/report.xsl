@@ -4,8 +4,8 @@
     <xsl:output doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
                 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
 
-    <xsl:include href="/utils/header.xsl"/>
-    <xsl:include href="/utils/footer.xsl"/>
+    <xsl:include href="../utils/header.xsl"/>
+    <xsl:include href="../utils/footer.xsl"/>
 
     <xsl:template match="/page">
         <html>
@@ -33,7 +33,7 @@
     </xsl:template>
 
     <xsl:template match="button">
-        <button>
+        <button onclick="window.location.href='http://localhost:3000/pdf-report';">
             <xsl:value-of select="title"/>
         </button>
     </xsl:template>

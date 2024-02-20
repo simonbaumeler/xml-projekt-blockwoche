@@ -1,8 +1,9 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
-import libxmljs from "libxmljs2";
 import { fileURLToPath } from "url";
+import request from "request";
+import { Xslt, XmlParser } from 'xslt-processor'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -48,7 +49,35 @@ app.get("/", (req, res) =>
   resCallbackAction(res, path.join(__dirname, "xml-content", "index.xml"))
 );
 
+//PDF Report route
+app.get("/pdf-report", (req, res) => {
+    const body = generateFo();
+    let options = {
+        'method': 'POST',
+        'url': 'https://fop.xml.hslu-edu.ch/fop.php',
+        'headers': {
+            'Content-Type': 'application/vnd.software602.filler.form+xml',
+            'Content-Length': Buffer.byteLength(body)
+        },
+        body: body
+    };
+    request(options, function (error, response) {
+        if (error) throw new Error(error);
+    }).pipe(res);
+});
+
 //Start server
 app.listen(port, () => {
   console.log("Listen on port", port);
 });
+
+function generateFo() {
+    const xslt = new Xslt();
+    const xmlParser = new XmlParser();
+    const xmlFile = fs.readFileSync('xml-database/database.xml').toString();
+    const xslFile = fs.readFileSync('xml-content/report/report-fo.xsl').toString();
+    return xslt.xsltProcess(
+        xmlParser.xmlParse(xmlFile),
+        xmlParser.xmlParse(xslFile)
+    );
+}
