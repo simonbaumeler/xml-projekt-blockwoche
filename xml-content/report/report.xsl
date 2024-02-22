@@ -33,7 +33,7 @@
     </xsl:template>
 
     <xsl:template match="button">
-        <button onclick="window.location.href='http://localhost:3000/pdf-report';">
+        <button onclick="window.location.href='/pdf-report';">
             <xsl:value-of select="title"/>
         </button>
     </xsl:template>
