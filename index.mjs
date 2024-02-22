@@ -3,7 +3,7 @@ import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import request from "request";
-import { Xslt, XmlParser } from 'xslt-processor'
+import saxonJs from "saxon-js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -51,7 +51,7 @@ app.get("/", (req, res) =>
 
 //PDF Report route
 app.get("/pdf-report", (req, res) => {
-    const body = generateFo();
+    const body = generateFo().principalResult;
     let options = {
         'method': 'POST',
         'url': 'https://fop.xml.hslu-edu.ch/fop.php',
@@ -72,12 +72,9 @@ app.listen(port, () => {
 });
 
 function generateFo() {
-    const xslt = new Xslt();
-    const xmlParser = new XmlParser();
-    const xmlFile = fs.readFileSync('xml-database/database.xml').toString();
-    const xslFile = fs.readFileSync('xml-content/report/report-fo.xsl').toString();
-    return xslt.xsltProcess(
-        xmlParser.xmlParse(xmlFile),
-        xmlParser.xmlParse(xslFile)
-    );
+    return saxonJs.transform({
+        stylesheetFileName: "xml-content/report/main.sef.json",
+        sourceFileName: "xml-database/database.xml",
+        destination: "serialized"
+    })
 }
