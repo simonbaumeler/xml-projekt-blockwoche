@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/statistic/statistic.xsl"?>
+<page>
+    <key>statistic</key>
+    <title>Statistik test</title>
+
+    <content>
+        <text>Sie wollen ihre Daten Graphisch betrachten und auf einen Blick vergleichen. </text>
+        <text>Genau dafür ist unser Statistik Feature. </text>
+    </content>
+</page>
