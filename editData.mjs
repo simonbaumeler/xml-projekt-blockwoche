@@ -1,12 +1,14 @@
 // @ts-check
 import libxmljs from "libxmljs2";
-import { readFile } from "fs/promises";
+import { readFile, writeFile, open } from "fs/promises";
+import { read } from "fs";
 
 /**
  * @typedef {import('express').Response} Response
  * @typedef {import('express').Request extends import('express').Request<infer x> ? x: never} ParamsDictionary
  * @typedef {import('express').Request<ParamsDictionary, Record<string, string>>} Request
  * @typedef {import('libxmljs2').Document} Document
+ * @typedef {import('libxmljs2').Element} Element
  */
 
 /**
@@ -18,6 +20,9 @@ export async function editDataFactory() {
 
   return (req, res) => editData(req, res, xsd);
 }
+
+/** @type {typeof import('libxmljs2').Document.prototype.get<Element>} */
+const getElement = libxmljs.Document.prototype.get;
 
 /**
  *
@@ -72,5 +77,22 @@ async function editData(req, res, xsd) {
     res.status(500).send("Data is invalid");
     return;
   }
+
+  let xmlFile;
+  try {
+    xmlFile = await open("./xml-database/database.xml", "r+");
+    const xml = libxmljs.parseXml(await xmlFile.readFile("utf-8"));
+
+    const participants = getElement.call(xml, "//participants");
+    if (!participants) {
+      res.status(500).send("Data is invalid");
+      return;
+    }
+    participants.addChild(participant);
+    await xmlFile.write(xml.toString(), 0);
+  } finally {
+    await xmlFile?.close();
+  }
+
   res.send("Data is valid");
 }
