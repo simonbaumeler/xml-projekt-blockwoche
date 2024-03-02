@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/edit/editTransaction.xsl"?>
+<page>
+    <key>participants</key>
+    <title>Participant</title>
+    <id></id>
+
+    <content>
+        <text>Diese Seite erlaubt das hinzufügen einer Transaktion</text>
+    </content>
+</page>

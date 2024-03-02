@@ -1,7 +1,11 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
-import { addParticipantFactory, addTransactionFactory } from "./editData.mjs";
+import {
+  addParticipantFactory,
+  addTransactionFactory,
+  getParticipantFactory,
+} from "./editData.mjs";
 import { fileURLToPath } from "url";
 import request from "request";
 import saxonJs from "saxon-js";
@@ -25,6 +29,11 @@ app.use(express.static(path.join(__dirname, "xml-database")));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.text());
 app.use(express.urlencoded({extended: false}));
+
+const getParticipant = await getParticipantFactory();
+app.get("/participant", (req, res, next) =>
+  getParticipant(req, res).catch(next)
+);
 
 //Get all types of urls like "/index", "/feature1", etc.
 app.get("/:path([A-Za-z0-9]+)", (req, res) =>

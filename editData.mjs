@@ -118,7 +118,6 @@ async function addTransaction(req, res, xsd) {
   }
 
   if (!doc.validate(xsd)) {
-    console.log(doc.validationErrors);
     res.status(500).send("Data is invalid");
     return;
   }
@@ -136,10 +135,42 @@ async function addTransaction(req, res, xsd) {
     }
     energyTransactions.addChild(energyTransaction);
     await database.write();
-    res.send("Top boi");
+    res.redirect(`/participant?id=${id}`);
   } catch {
     res.status(500).send("Error when saving");
   } finally {
     await database?.close();
   }
+}
+
+/**
+ * @returns {Promise<(req: Request, res: Response) => Promise<void>>}
+ */
+export async function getParticipantFactory() {
+  const xmlFile = await readFile("./xml-content/addTransaction.xml", "utf8");
+  const xml = libxmljs.parseXml(xmlFile);
+
+  return (req, res) => getParticipant(req, res, xml);
+}
+
+/**
+ * @param {Request} req
+ * @param {Response} res
+ * @param {Document} xml
+ */
+async function getParticipant(req, res, xml) {
+  const id = req.query.id;
+  if (typeof id !== "string") {
+    res.status(400).send("id is missing");
+    return;
+  }
+
+  const page = Database.getElement.call(xml, "/page/id", {});
+  if (!page) {
+    throw new Error("Invalid Database");
+  }
+  page.text(id);
+
+  res.header("Content-Type", "application/xml");
+  res.send(xml.toString());
 }

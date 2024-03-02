@@ -23,10 +23,27 @@
                             <xsl:value-of select="title" />
                         </h1>
                         <xsl:apply-templates select="//content/text" />
-                        <hr />
+                        <form action="/addTransaction?id={id}" method="post">
+                            <label for="amount">Amount</label>
+                            <input type="number" id="amount" name="amount" />
 
+                            <label for="ratePerUnit">RatePerUnit</label>
+                            <input type="ratePerUnit" id="ratePerUnit" name="ratePerUnit" />
+
+                            <label for="totalPrice">TotalPrice</label>
+                            <input type="totalPrice" id="totalPrice" name="totalPrice" />
+
+
+                            <label for="date">Date</label>
+                            <input type="date" id="date" name="date" />
+                            <label for="time">Time</label>
+                            <input type="time" id="time" name="time" />
+
+                            <input type="submit" value="Submit" />
+                        </form>
+                        <xsl:variable name="selectedId" select="id" />
                         <xsl:apply-templates
-                            select="document('/database.xml')/energie-data/participants" />
+                            select="document('/database.xml' )/ energie-data/ participants/ participant[id= $selectedId]" />
                     </section>
 
                     <xsl:apply-templates select="/" mode="footer" />
@@ -34,4 +51,11 @@
             </body>
         </html>
     </xsl:template>
+
+    <xsl:template match="text">
+        <p>
+            <xsl:value-of select="." />
+        </p>
+    </xsl:template>
+
 </xsl:stylesheet>
