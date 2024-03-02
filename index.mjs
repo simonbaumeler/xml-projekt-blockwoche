@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
-import { editDataFactory } from "./editData.mjs";
+import { addParticipantFactory, addTransactionFactory } from "./editData.mjs";
 import { fileURLToPath } from "url";
 import request from "request";
 import saxonJs from "saxon-js";
@@ -68,8 +68,15 @@ app.get("/pdf-report", (req, res) => {
   }).pipe(res);
 });
 
-const editData = await editDataFactory();
-app.post("/edit", (req, res, next) => editData(req, res).catch(next));
+const addParticipant = await addParticipantFactory();
+app.post("/addParticipant", (req, res, next) =>
+  addParticipant(req, res).catch(next)
+);
+
+const addTransaction = await addTransactionFactory();
+app.post("/addTransaction", (req, res, next) =>
+  addTransaction(req, res).catch(next)
+);
 
 //Start server
 app.listen(port, () => {

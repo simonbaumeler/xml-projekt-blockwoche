@@ -20,7 +20,7 @@
                             <xsl:value-of select="title" />
                         </h1>
                         <xsl:apply-templates select="//content/text" />
-                        <form action="/edit" method="post">
+                        <form action="/addParticipant" method="post">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" />
                             <label for="startDate">Start Date</label>

@@ -1,39 +1,40 @@
 // @ts-check
 import libxmljs from "libxmljs2";
-import { readFile, open } from "fs/promises";
+import { readFile } from "fs/promises";
+import { randomUUID } from "crypto";
+import { Database } from "./database.mjs";
 
 /**
  * @typedef {import('express').Response} Response
  * @typedef {import('express').Request extends import('express').Request<infer x> ? x: never} ParamsDictionary
  * @typedef {import('express').Request<ParamsDictionary, Record<string, string>>} Request
  * @typedef {import('libxmljs2').Document} Document
- * @typedef {import('libxmljs2').Element} Element
+ * @typedef {import('fs/promises').FileHandle} FileHandle
  */
+
+const XSD_PATH = "./xml-database/database.xsd";
 
 /**
  * @returns {Promise<(req: Request, res: Response) => Promise<void>>}
  */
-export async function editDataFactory() {
-  const xsdFile = await readFile("./xml-database/database.xsd", "utf8");
+export async function addParticipantFactory() {
+  const xsdFile = await readFile(XSD_PATH, "utf8");
   const xsd = libxmljs.parseXml(xsdFile);
 
-  return (req, res) => editData(req, res, xsd);
+  return (req, res) => addParticipant(req, res, xsd);
 }
 
-/** @type {typeof import('libxmljs2').Document.prototype.get<Element>} */
-const getElement = libxmljs.Document.prototype.get;
-
 /**
- *
  * @param {Request} req
  * @param {Response} res
  * @param {Document} xsd
  */
-async function editData(req, res, xsd) {
+async function addParticipant(req, res, xsd) {
   const doc = new libxmljs.Document();
 
   const participant = doc.node("participant");
 
+  participant.node("id", randomUUID());
   participant.node("name", req.body.name);
   if (req.body.startDate && req.body.startTime) {
     participant.node(
@@ -59,20 +60,86 @@ async function editData(req, res, xsd) {
     return;
   }
 
-  let xmlFile;
+  /** @type {Database | undefined} */
+  let database;
   try {
-    xmlFile = await open("./xml-database/database.xml", "r+");
-    const xml = libxmljs.parseXml(await xmlFile.readFile("utf-8"));
-
-    const participants = getElement.call(xml, "//participants");
+    database = await Database.open();
+    const participants = database.getElement("//participants");
     if (!participants) {
       throw new Error("Invalid Database");
     }
     participants.addChild(participant);
-    await xmlFile.write(xml.toString(), 0);
+
+    await database.write();
+    res.send("Data is valid");
+  } catch {
+    res.status(500).send("Error when saving");
   } finally {
-    await xmlFile?.close();
+    await database?.close();
+  }
+}
+
+/**
+ * @returns {Promise<(req: Request, res: Response) => Promise<void>>}
+ */
+export async function addTransactionFactory() {
+  const xsdFile = await readFile(XSD_PATH, "utf8");
+  const xsd = libxmljs.parseXml(xsdFile);
+
+  return (req, res) => addTransaction(req, res, xsd);
+}
+
+/**
+ * @param {Request} req
+ * @param {Response} res
+ * @param {Document} xsd
+ */
+async function addTransaction(req, res, xsd) {
+  const id = req.query.id;
+  if (typeof id !== "string") {
+    res.status(400).send("id is missing");
+    return;
   }
 
-  res.send("Data is valid");
+  const doc = new libxmljs.Document();
+
+  const energyTransaction = doc.node("energyTransaction");
+  energyTransaction.attr({
+    energyType: "electricity",
+    amount: req.body.amount,
+    ratePerUnit: req.body.ratePerUnit,
+    totalPrice: req.body.totalPrice,
+  });
+  if (req.body.date && req.body.time) {
+    energyTransaction.attr(
+      "timestamp",
+      `${req.body.date}T${req.body.time}:00.000`
+    );
+  }
+
+  if (!doc.validate(xsd)) {
+    console.log(doc.validationErrors);
+    res.status(500).send("Data is invalid");
+    return;
+  }
+
+  /** @type {Database | undefined} */
+  let database;
+  try {
+    database = await Database.open();
+    const energyTransactions = database.getElement(
+      `//participant[id = '${id}']/energyTransactions`
+    );
+    if (!energyTransactions) {
+      res.status(404).send("Participant not found");
+      return;
+    }
+    energyTransactions.addChild(energyTransaction);
+    await database.write();
+    res.send("Top boi");
+  } catch {
+    res.status(500).send("Error when saving");
+  } finally {
+    await database?.close();
+  }
 }
