@@ -23,16 +23,13 @@
                             <xsl:value-of select="title" />
                         </h1>
                         <xsl:apply-templates select="//content/text" />
-                        <form action="/addTransaction?id={id}" method="post">
+                        <form class="transaction-form" action="/addTransaction?id={id}"
+                            method="post">
                             <label for="amount">Amount</label>
                             <input type="number" id="amount" name="amount" />
 
                             <label for="ratePerUnit">RatePerUnit</label>
-                            <input type="ratePerUnit" id="ratePerUnit" name="ratePerUnit" />
-
-                            <label for="totalPrice">TotalPrice</label>
-                            <input type="totalPrice" id="totalPrice" name="totalPrice" />
-
+                            <input type="number" id="ratePerUnit" name="ratePerUnit" />
 
                             <label for="date">Date</label>
                             <input type="date" id="date" name="date" />

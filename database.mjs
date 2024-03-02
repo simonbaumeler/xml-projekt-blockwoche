@@ -29,6 +29,9 @@ export class Database {
   /** @type {typeof import('libxmljs2').Document.prototype.get<Element>} */
   static getElement = libxmljs.Document.prototype.get;
 
+  /** @type {typeof import('libxmljs2').Element.prototype.find<Element>} */
+  static find = libxmljs.Element.prototype.find;
+
   /**@type {FileHandle} */
   #file;
 

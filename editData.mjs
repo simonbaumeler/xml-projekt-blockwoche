@@ -71,7 +71,7 @@ async function addParticipant(req, res, xsd) {
     participants.addChild(participant);
 
     await database.write();
-    res.send("Data is valid");
+    res.redirect("/participants");
   } catch {
     res.status(500).send("Error when saving");
   } finally {
@@ -108,7 +108,6 @@ async function addTransaction(req, res, xsd) {
     energyType: "electricity",
     amount: req.body.amount,
     ratePerUnit: req.body.ratePerUnit,
-    totalPrice: req.body.totalPrice,
   });
   if (req.body.date && req.body.time) {
     energyTransaction.attr(
@@ -116,8 +115,13 @@ async function addTransaction(req, res, xsd) {
       `${req.body.date}T${req.body.time}:00.000`
     );
   }
+  const amount = parseInt(req.body.amount);
+  const ratePerUnit = parseInt(req.body.ratePerUnit);
+  const totalPrice = amount * ratePerUnit;
+  energyTransaction.attr("totalPrice", totalPrice.toString());
 
   if (!doc.validate(xsd)) {
+    console.log(doc.validationErrors);
     res.status(500).send("Data is invalid");
     return;
   }
@@ -133,6 +137,24 @@ async function addTransaction(req, res, xsd) {
       res.status(404).send("Participant not found");
       return;
     }
+
+    const totalPrices = Database.find
+      .call(energyTransactions, "energyTransaction", {})
+      .map((element) => {
+        const totalPrice = element.attr("totalPrice");
+        if (!totalPrice) {
+          throw new Error("Invalid Database");
+        }
+        return parseInt(totalPrice.value());
+      })
+      .reduce((acc, value) => acc + value, 0);
+
+    console.log(totalPrices, totalPrice, totalPrices + totalPrice);
+    if (totalPrices + totalPrice < 0) {
+      res.status(500).send("Total price cannot be negative");
+      return;
+    }
+
     energyTransactions.addChild(energyTransaction);
     await database.write();
     res.redirect(`/participant?id=${id}`);
