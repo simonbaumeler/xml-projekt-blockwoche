@@ -1,11 +1,11 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <xs:element name="energie-data">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="energyTypes"/>
-                <xs:element ref="participants"/>
+                <xs:element ref="energyTypes" />
+                <xs:element ref="participants" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -13,7 +13,7 @@
     <xs:element name="energyTypes">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="energyType" maxOccurs="unbounded"/>
+                <xs:element ref="energyType" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -28,7 +28,7 @@
     <xs:element name="participants">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="participant" maxOccurs="unbounded"/>
+                <xs:element ref="participant" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -36,11 +36,12 @@
     <xs:element name="participant">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="name" type="xs:string"/>
-                <xs:element name="startDatetime" type="xs:string"/>
+                <xs:element name="id" type="GUID" />
+                <xs:element name="name" type="xs:string" />
+                <xs:element name="startDatetime" type="xs:string" />
 
-                <xs:element ref="address"/>
-                <xs:element ref="energyTransactions"/>
+                <xs:element ref="address" />
+                <xs:element ref="energyTransactions" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -48,14 +49,14 @@
     <xs:element name="address">
         <xs:complexType>
             <xs:all>
-                <xs:element name="firstname" type="NonEmptyString"/>
-                <xs:element name="middlename" type="xs:string"/>
-                <xs:element name="lastname" type="NonEmptyString"/>
-                <xs:element name="street" type="NonEmptyString"/>
-                <xs:element name="housenumber" type="NonEmptyString"/>
-                <xs:element name="city" type="NonEmptyString"/>
-                <xs:element name="state" type="xs:string"/>
-                <xs:element name="country" type="NonEmptyString"/>
+                <xs:element name="firstname" type="NonEmptyString" />
+                <xs:element name="middlename" type="xs:string" />
+                <xs:element name="lastname" type="NonEmptyString" />
+                <xs:element name="street" type="NonEmptyString" />
+                <xs:element name="housenumber" type="NonEmptyString" />
+                <xs:element name="city" type="NonEmptyString" />
+                <xs:element name="state" type="xs:string" />
+                <xs:element name="country" type="NonEmptyString" />
             </xs:all>
         </xs:complexType>
     </xs:element>
@@ -70,24 +71,32 @@
 
     <xs:element name="energyTransaction">
         <xs:complexType>
-            <xs:attribute name="energyType" type="xs:string"/>
-            <xs:attribute name="amount" type="xs:decimal"/>
-            <xs:attribute name="ratePerUnit" type="rate"/>
-            <xs:attribute name="timestamp" type="xs:string"/>
-            <xs:attribute name="totalPrice" type="xs:decimal"/>
+            <xs:attribute name="energyType" type="xs:string" />
+            <xs:attribute name="amount" type="xs:decimal" />
+            <xs:attribute name="ratePerUnit" type="rate" />
+            <xs:attribute name="timestamp" type="xs:string" />
+            <xs:attribute name="totalPrice" type="xs:decimal" />
         </xs:complexType>
     </xs:element>
 
     <xs:simpleType name="rate">
         <xs:restriction base="xs:decimal">
-            <xs:minInclusive value="0"/>
+            <xs:minInclusive value="0" />
         </xs:restriction>
     </xs:simpleType>
 
     <xs:simpleType name="NonEmptyString">
         <xs:restriction base="xs:string">
-            <xs:minLength value="1"/>
+            <xs:minLength value="1" />
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:simpleType name="GUID">
+        <xs:restriction base="xs:string">
+            <xs:pattern
+                value="([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})" />
+        </xs:restriction>
+    </xs:simpleType>
+
 
 </xs:schema>
