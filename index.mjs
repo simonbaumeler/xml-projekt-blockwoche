@@ -1,7 +1,6 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
-import libxmljs from "libxmljs2";
 import { editDataFactory } from "./editData.mjs";
 import { fileURLToPath } from "url";
 import request from "request";
@@ -13,6 +12,7 @@ const __dirname = path.dirname(__filename);
 //Setup
 const app = express();
 const port = 3000;
+
 const resCallbackAction = (res, filePath) =>
     // todo: comment says you should not use fs.access like this
     fs.access(filePath, fs.constants.F_OK, (err) =>
@@ -53,19 +53,19 @@ app.get("/", (req, res) =>
 
 //PDF Report route
 app.get("/pdf-report", (req, res) => {
-    const body = generateFo().principalResult;
-    let options = {
-        'method': 'POST',
-        'url': 'https://fop.xml.hslu-edu.ch/fop.php',
-        'headers': {
-            'Content-Type': 'application/vnd.software602.filler.form+xml',
-            'Content-Length': Buffer.byteLength(body)
-        },
-        body: body
-    };
-    request(options, function (error, response) {
-        if (error) throw new Error(error);
-    }).pipe(res);
+  const body = generateFo().principalResult;
+  let options = {
+    method: "POST",
+    url: "https://fop.xml.hslu-edu.ch/fop.php",
+    headers: {
+      "Content-Type": "application/vnd.software602.filler.form+xml",
+      "Content-Length": Buffer.byteLength(body),
+    },
+    body: body,
+  };
+  request(options, function (error, response) {
+    if (error) throw new Error(error);
+  }).pipe(res);
 });
 
 const editData = await editDataFactory();

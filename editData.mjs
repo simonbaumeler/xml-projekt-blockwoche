@@ -1,7 +1,6 @@
 // @ts-check
 import libxmljs from "libxmljs2";
-import { readFile, writeFile, open } from "fs/promises";
-import { read } from "fs";
+import { readFile, open } from "fs/promises";
 
 /**
  * @typedef {import('express').Response} Response
@@ -34,9 +33,8 @@ async function editData(req, res, xsd) {
   const doc = new libxmljs.Document();
 
   const participant = doc.node("participant");
-  if (req.body.name) {
-    participant.node("name", req.body.name);
-  }
+
+  participant.node("name", req.body.name);
   if (req.body.startDate && req.body.startTime) {
     participant.node(
       "startDatetime",
@@ -45,35 +43,18 @@ async function editData(req, res, xsd) {
   }
 
   const address = participant.node("address");
-  if (req.body.firstname) {
-    address.node("firstname", req.body.firstname);
-  }
-  if (req.body.middlename) {
-    address.node("middlename", req.body.middlename);
-  }
-  if (req.body.lastname) {
-    address.node("lastname", req.body.lastname);
-  }
-  if (req.body.street) {
-    address.node("street", req.body.street);
-  }
-  if (req.body.housenumber) {
-    address.node("housenumber", req.body.housenumber);
-  }
-  if (req.body.city) {
-    address.node("city", req.body.city);
-  }
-  if (req.body.state) {
-    address.node("state", req.body.state);
-  }
-  if (req.body.country) {
-    address.node("country", req.body.country);
-  }
+  address.node("firstname", req.body.firstname);
+  address.node("middlename", req.body.middlename);
+  address.node("lastname", req.body.lastname);
+  address.node("street", req.body.street);
+  address.node("housenumber", req.body.housenumber);
+  address.node("city", req.body.city);
+  address.node("state", req.body.state);
+  address.node("country", req.body.country);
 
   participant.node("energyTransactions");
 
   if (!doc.validate(xsd)) {
-    console.log("moin", doc.validationErrors);
     res.status(500).send("Data is invalid");
     return;
   }
@@ -85,8 +66,7 @@ async function editData(req, res, xsd) {
 
     const participants = getElement.call(xml, "//participants");
     if (!participants) {
-      res.status(500).send("Data is invalid");
-      return;
+      throw new Error("Invalid Database");
     }
     participants.addChild(participant);
     await xmlFile.write(xml.toString(), 0);
