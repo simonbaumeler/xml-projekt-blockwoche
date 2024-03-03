@@ -32,9 +32,6 @@
                     <p>Max Mustermann<br/>
                         Musterstraße 123<br/>
                         12345 Musterstadt</p>
-
-                    <h4>Haftungsausschluss (Disclaimer):</h4>
-                    <p>Hier kommt der Haftungsausschluss-Text...</p>
                 </div>
             </div>
 

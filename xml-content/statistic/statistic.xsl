@@ -6,6 +6,8 @@
 
     <xsl:include href="/utils/header.xsl"/>
     <xsl:include href="/utils/footer.xsl"/>
+    <xsl:include href="../utils/date_format.xsl"/>
+
 
     <xsl:template match="/page">
         <html>
@@ -59,8 +61,7 @@
         <xsl:variable name="totalEnergy" select="sum(energyTransactions/energyTransaction/@amount)"/>
         <xsl:variable name="barHeight" select="$totalEnergy * 10"/> <!-- Example calculation -->
         <xsl:variable name="yPosition" select="position() * 40"/> <!-- Adjust as needed -->
-
-        <svg:rect x="50" y="{$yPosition}" width="{$barHeight}" height="30" style="fill:#FFC374;"/>
+        <svg:rect x="50" y="{$yPosition}" width="{$barHeight}" height="30" style="fill:#b4cfff;"/>
         <svg:text x="55" y="{$yPosition + 20}" font-family="Verdana" font-size="15" fill="#124076">
             <xsl:value-of select="name"/> -
             <xsl:value-of select="$totalEnergy"/>
@@ -114,7 +115,9 @@
             <svg:circle cx="{$x}" cy="{$y}" r="3" fill="#124076"/>
             <!-- Display timestamp -->
             <svg:text x="{$x}" y="{$textY}" font-family="Verdana" font-size="10" fill="black" transform="rotate(45,{$x},{$textY})">
-                <xsl:value-of select="substring-before(@timestamp, 'T')"/>
+                <xsl:call-template name="date_format">
+                    <xsl:with-param name="dateTime" select="@timestamp" />
+                </xsl:call-template>
             </svg:text>
             <!-- Display amount -->
             <svg:text x="{$x - 5}" y="{$y - 10}" font-family="Verdana" font-size="10" fill="black">
@@ -149,5 +152,7 @@
             <xsl:value-of select="$currentSum"/>
         </xsl:if>
     </xsl:template>
+
+
 
 </xsl:stylesheet>

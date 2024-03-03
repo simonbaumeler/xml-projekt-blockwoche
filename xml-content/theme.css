@@ -7,10 +7,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(270deg, #e2ecf4, #ecf5fe, #f3f7fa);
+    background: linear-gradient(270deg, #d2dee8, #ecf5fe, #c2ddf1);
     background-size: 400% 400%;
     color: #0e1213;
-    animation: ElectricAnimation 4s ease infinite;
+    animation: ElectricAnimation 7s ease infinite;
 
 }
 
@@ -70,6 +70,7 @@ nav {
     display: flex;
     justify-content: space-around;
     border-radius: 15px;
+    gap: 10px;
 }
 
 /* Nav container elements */
@@ -96,7 +97,7 @@ nav a {
 
 /* Nav links while hovering */
 nav a:hover {
-    color: #0561fa; /* Change hover color */
+    color: #5190fe; /* Change hover color */
 }
 
 /* Nav links while active site */
@@ -163,11 +164,11 @@ footer {
 
 /* CSS */
 button {
-    background-color: #FFFFFF;
+    background-color: #0561fa;
     border: 0;
     border-radius: .5rem;
     box-sizing: border-box;
-    color: #111827;
+    color: white;
     font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: .875rem;
     font-weight: 600;
@@ -184,7 +185,8 @@ button {
 }
 
 button:hover {
-    background-color: rgb(249, 250, 251);
+    background-color:rgba(30, 110, 243, 0.8);
+    color: white;
 }
 
 button:focus {
