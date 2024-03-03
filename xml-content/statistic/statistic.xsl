@@ -6,7 +6,6 @@
 
     <xsl:include href="/utils/header.xsl"/>
     <xsl:include href="/utils/footer.xsl"/>
-    <xsl:include href="/utils/footer.xsl"/>
 
     <xsl:template match="/page">
         <html>
@@ -14,31 +13,25 @@
             <body>
                 <main>
                     <xsl:apply-templates select="/" mode="header"/>
-                    <div style="overflow-y: scroll; height: 100vh;">
-
-                        <section>
-                            <h1>
-                                <xsl:value-of select="title"/>
-                            </h1>
-                            <xsl:apply-templates select="//content/text"/>
-                        </section>
-                        <section>
-                            <h2>Balken Diagramm</h2>
-                            <p>
-                                Das Balkendiagramm zeigt die Gesamtenergie, die von verschiedenen Anbietern bereitgestellt wird, und ermöglichen es Ihnen, einen schnellen Überblick über die Leistung jedes Anbieters zu erhalten.
-                            </p>
-                        </section>
+                    <section>
+                        <h1>
+                            <xsl:value-of select="title"/>
+                        </h1>
+                        <xsl:apply-templates select="//content/text"/>
+                        <h3>Balken Diagramm</h3>
+                        <p>
+                            Das Balkendiagramm zeigt die Gesamtenergie, die von verschiedenen Anbietern bereitgestellt wird, und ermöglichen es Ihnen, einen schnellen Überblick über die Leistung jedes Anbieters zu erhalten.
+                        </p>
                         <!-- Bar Chart -->
                         <xsl:apply-templates select="document('/database.xml')/energie-data/participants" mode="barChart"/>
-                        <section>
-                            <h2>Die Trenddiagramme</h2>
-                            <p>
-                                Die Trenddiagramme hingegen veranschaulichen die zeitliche Entwicklung der Energieströme, wobei Sie die Möglichkeit haben, die Energieproduktion und -nutzung im Laufe der Zeit zu verfolgen und zu analysieren.
-                            </p>
-                        </section>
+                        <h3>Trenddiagramm</h3>
+                        <p>
+                            Die Trenddiagramme hingegen veranschaulichen die zeitliche Entwicklung der Energieströme, wobei Sie die Möglichkeit haben, die Energieproduktion und -nutzung im Laufe der Zeit zu verfolgen und zu analysieren.
+                        </p>
                         <!-- Trend Chart -->
                         <xsl:apply-templates select="document('/database.xml')/energie-data/participants/participant" mode="trendChart"/>
-                    </div>
+                    </section>
+                    <xsl:apply-templates select="/" mode="footer"/>
                 </main>
             </body>
         </html>
@@ -77,11 +70,9 @@
     <!-- Trend Chart Template -->
     <xsl:template match="participant" mode="trendChart">
         <xsl:variable name="energyProvider" select="name"/>
-        <section>
-            <h2>
-                <xsl:value-of select="$energyProvider"/>
-            </h2>
-        </section>
+        <h4>
+            <xsl:value-of select="$energyProvider"/>
+        </h4>
         <svg:svg width="800" height="300">
             <xsl:call-template name="drawTrendChart">
                 <xsl:with-param name="energyTransactions" select="energyTransactions/energyTransaction"/>

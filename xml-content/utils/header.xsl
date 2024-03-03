@@ -16,7 +16,7 @@
     <xsl:template match="/" mode="header">
         <header>
             <h1>EPAZS</h1>
-            <h2>Energie-Preis-Auskunfts-Zentral-Stelle</h2>
+            <p>Energie-Preis-Auskunfts-Zentral-Stelle</p>
         </header>
         <nav>
             <xsl:call-template name="tokenizeSites">
