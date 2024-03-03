@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="/statistic/statistic.xsl"?>
 <page>
     <key>statistic</key>
-    <title>Statistik test</title>
+    <title>Statistik</title>
 
     <content>
         <text>Es werden Balkendiagramme wie auch Trenddiagramme verwendet, um Ihnen einen umfassenden Einblick in die Leistung und Dynamik unseres Energiesharing-Netzwerks zu geben.</text>
