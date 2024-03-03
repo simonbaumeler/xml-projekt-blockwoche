@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/statistic/statistic.xsl"?>
+<page>
+    <key>statistic</key>
+    <title>Statistik test</title>
+
+    <content>
+        <text>Es werden Balkendiagramme wie auch Trenddiagramme verwendet, um Ihnen einen umfassenden Einblick in die Leistung und Dynamik unseres Energiesharing-Netzwerks zu geben.</text>
+
+
+
+        <text>Wir laden Sie ein, sich diese Grafiken genauer anzusehen und mehr über die faszinierenden Möglichkeiten des Energiesharings zu erfahren. Wenn Sie Fragen haben oder mehr über unsere Dienstleistungen erfahren möchten, zögern Sie nicht,
+            uns zu kontaktieren.
+        </text>
+        <text>Genau dafür ist unser Statistik Feature.</text>
+    </content>
+</page>
