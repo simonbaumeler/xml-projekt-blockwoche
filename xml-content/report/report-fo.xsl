@@ -4,6 +4,7 @@
 
     <xsl:output method="xml" indent="yes"/>
     <xsl:include href="../utils/concat_name.xsl"/>
+    <xsl:include href="../utils/date_format.xsl"/>
     <xsl:template match="/">
         <fo:root>
             <fo:layout-master-set>
@@ -39,7 +40,7 @@
             Start Date and Time:
         </fo:block>
         <fo:block space-after="6pt" text-align="center">
-            <xsl:value-of select="startDatetime"/>
+            <xsl:apply-templates select="startDatetime"/>
         </fo:block>
 
         <!-- Address Information -->
@@ -160,6 +161,12 @@
             <xsl:with-param name="firstname" select="firstname"/>
             <xsl:with-param name="middlename" select="middlename"/>
             <xsl:with-param name="lastname" select="lastname"/>
+        </xsl:call-template>
+    </xsl:template>
+
+    <xsl:template match="/energie-data/participants/participant/startDatetime">
+        <xsl:call-template name="date_format">
+            <xsl:with-param name="dateTime" select="startDatetime"/>
         </xsl:call-template>
     </xsl:template>
 </xsl:stylesheet>

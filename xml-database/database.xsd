@@ -48,14 +48,14 @@
     <xs:element name="address">
         <xs:complexType>
             <xs:all>
-                <xs:element name="firstname" type="xs:string"/>
+                <xs:element name="firstname" type="NonEmptyString"/>
                 <xs:element name="middlename" type="xs:string"/>
-                <xs:element name="lastname" type="xs:string"/>
-                <xs:element name="street" type="xs:string"/>
-                <xs:element name="housenumber" type="xs:string"/>
-                <xs:element name="city" type="xs:string"/>
+                <xs:element name="lastname" type="NonEmptyString"/>
+                <xs:element name="street" type="NonEmptyString"/>
+                <xs:element name="housenumber" type="NonEmptyString"/>
+                <xs:element name="city" type="NonEmptyString"/>
                 <xs:element name="state" type="xs:string"/>
-                <xs:element name="country" type="xs:string"/>
+                <xs:element name="country" type="NonEmptyString"/>
             </xs:all>
         </xs:complexType>
     </xs:element>
@@ -70,17 +70,23 @@
 
     <xs:element name="energyTransaction">
         <xs:complexType>
-            <xs:attribute name="energyType" type="xs:string" />
-            <xs:attribute name="amount" type="xs:decimal" />
-            <xs:attribute name="ratePerUnit" type="rate" />
-            <xs:attribute name="timestamp" type="xs:string" />
-            <xs:attribute name="priceTotal" type="xs:decimal" />
+            <xs:attribute name="energyType" type="xs:string"/>
+            <xs:attribute name="amount" type="xs:decimal"/>
+            <xs:attribute name="ratePerUnit" type="rate"/>
+            <xs:attribute name="timestamp" type="xs:string"/>
+            <xs:attribute name="totalPrice" type="xs:decimal"/>
         </xs:complexType>
     </xs:element>
 
     <xs:simpleType name="rate">
         <xs:restriction base="xs:decimal">
             <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="NonEmptyString">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
         </xs:restriction>
     </xs:simpleType>
 

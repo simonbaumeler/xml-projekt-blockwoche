@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-    <xsl:variable name="sites" select="'index:Home,feature1:Feature1,statistic:Statistik,feature3:Feature3,report:Report generieren,participants:Participants,'" /> <!-- must end in ',' due to strange bug -->
+    <xsl:variable name="sites" select="'index:Home,statistic:Statistik,feature3:Feature3,report:Report generieren,participants:Participants,'" /> <!-- must end in ',' due to strange bug -->
 
     <xsl:template name="tokenizeSites">
         <xsl:param name="base" />
