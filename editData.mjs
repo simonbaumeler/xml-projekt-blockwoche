@@ -121,7 +121,6 @@ async function addTransaction(req, res, xsd) {
   energyTransaction.attr("totalPrice", totalPrice.toString());
 
   if (!doc.validate(xsd)) {
-    console.log(doc.validationErrors);
     res.status(500).send("Data is invalid");
     return;
   }
@@ -149,7 +148,6 @@ async function addTransaction(req, res, xsd) {
       })
       .reduce((acc, value) => acc + value, 0);
 
-    console.log(totalPrices, totalPrice, totalPrices + totalPrice);
     if (totalPrices + totalPrice < 0) {
       res.status(500).send("Total price cannot be negative");
       return;

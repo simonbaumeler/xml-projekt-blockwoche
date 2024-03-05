@@ -40,7 +40,7 @@
                         </form>
                         <xsl:variable name="selectedId" select="id" />
                         <xsl:apply-templates
-                            select="document('/database.xml' )/ energie-data/ participants/ participant[id= $selectedId]" />
+                            select="document('/database.xml' )/ energie-data/ participants/ participant[id=$selectedId]" />
                     </section>
 
                     <xsl:apply-templates select="/" mode="footer" />
