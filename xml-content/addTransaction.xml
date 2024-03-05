@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/edit/editTransaction.xsl"?>
+<page>
+    <key>participants</key>
+    <title>Transaktion hinzufügen</title>
+    <id></id>
+
+    <content>
+        <text>Diese Seite erlaubt das hinzufügen einer Transaktion. Im Firefox klappt dies leider
+            nicht da es einen Bug im Input type=time gibt</text>
+    </content>
+</page>

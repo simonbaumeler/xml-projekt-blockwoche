@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="xml-content/report/report-fo.xsl"?>
-
-<energie-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="database.xsd">
+<energie-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="database.xsd">
 
     <energyTypes>
         <energyType key="electricity" display_value="Elektrizität" />
@@ -10,6 +10,7 @@
 
     <participants>
         <participant>
+            <id>9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d</id>
             <name>HSLU Energy Factory</name>
             <startDatetime>2024-02-07T10:00:00.000</startDatetime>
             <address>
@@ -41,6 +42,7 @@
             </energyTransactions>
         </participant>
         <participant>
+            <id>1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed</id>
             <name>HSLU Energy Factory</name>
             <startDatetime>2024-02-07T10:00:00.000</startDatetime>
             <address>
@@ -72,6 +74,7 @@
             </energyTransactions>
         </participant>
         <participant>
+            <id>b8f31417-ca3f-49c3-b87d-15d07ecab4a4</id>
             <name>HSLU Energy Factory 3</name>
             <startDatetime>2024-02-07T10:00:00.000</startDatetime>
             <address>

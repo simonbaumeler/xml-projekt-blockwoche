@@ -1,7 +1,12 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
-import {fileURLToPath} from "url";
+import {
+  addParticipantFactory,
+  addTransactionFactory,
+  getParticipantFactory,
+} from "./editData.mjs";
+import { fileURLToPath } from "url";
 import request from "request";
 import saxonJs from "saxon-js";
 
@@ -11,6 +16,7 @@ const __dirname = path.dirname(__filename);
 //Setup
 const app = express();
 const port = 3000;
+
 const resCallbackAction = (res, filePath) =>
     // todo: comment says you should not use fs.access like this
     fs.access(filePath, fs.constants.F_OK, (err) =>
@@ -23,6 +29,11 @@ app.use(express.static(path.join(__dirname, "xml-database")));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.text());
 app.use(express.urlencoded({extended: false}));
+
+const getParticipant = await getParticipantFactory();
+app.get("/participant", (req, res, next) =>
+  getParticipant(req, res).catch(next)
+);
 
 //Get all types of urls like "/index", "/feature1", etc.
 app.get("/:path([A-Za-z0-9]+)", (req, res) =>
@@ -51,20 +62,30 @@ app.get("/", (req, res) =>
 
 //PDF Report route
 app.get("/pdf-report", (req, res) => {
-    const body = generateFo().principalResult;
-    let options = {
-        'method': 'POST',
-        'url': 'https://fop.xml.hslu-edu.ch/fop.php',
-        'headers': {
-            'Content-Type': 'application/vnd.software602.filler.form+xml',
-            'Content-Length': Buffer.byteLength(body)
-        },
-        body: body
-    };
-    request(options, function (error, response) {
-        if (error) throw new Error(error);
-    }).pipe(res);
+  const body = generateFo().principalResult;
+  let options = {
+    method: "POST",
+    url: "https://fop.xml.hslu-edu.ch/fop.php",
+    headers: {
+      "Content-Type": "application/vnd.software602.filler.form+xml",
+      "Content-Length": Buffer.byteLength(body),
+    },
+    body: body,
+  };
+  request(options, function (error, response) {
+    if (error) throw new Error(error);
+  }).pipe(res);
 });
+
+const addParticipant = await addParticipantFactory();
+app.post("/addParticipant", (req, res, next) =>
+  addParticipant(req, res).catch(next)
+);
+
+const addTransaction = await addTransactionFactory();
+app.post("/addTransaction", (req, res, next) =>
+  addTransaction(req, res).catch(next)
+);
 
 //Start server
 app.listen(port, () => {

@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+      "checkJs": true,
+      "strict": true,
+      "strictBindCallApply": true,
+      "lib": ["ES2022"],
+      "module": "NodeNext"
+    }
+  }
+  
