@@ -3,7 +3,7 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <xsl:variable name="sites"
-        select="'index:Home,statistic:Statistik,edit:Participant Hinzufügen,report:Report generieren,participants:Participants,'" /> <!--
+        select="'index:Home,participants:Participants,edit:Participant Hinzufügen,statistic:Statistik,report:Report generieren,'" /> <!--
     must end in ',' due to strange bug -->
 
     <xsl:template name="tokenizeSites">

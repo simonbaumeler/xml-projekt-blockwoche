@@ -24,61 +24,66 @@
                             <div>
                                 <div>
                                     <label for="name">Name</label>
-                                    <input type="text" id="name" name="name" />
+                                    <input type="text" id="name" name="name" required="true" />
                                 </div>
                             </div>
                             <div>
                                 <div>
                                     <label for="startDate">Start Date</label>
-                                    <input type="date" id="startDate" name="startDate" />
+                                    <input type="date" id="startDate" name="startDate"
+                                        required="true" />
                                 </div>
                                 <div>
                                     <label for="startTime">Start Time</label>
-                                    <input type="time" id="startTime" name="startTime" />
+                                    <input type="time" id="startTime" name="startTime"
+                                        required="true" />
                                 </div>
                             </div>
                             <div>
                                 <div>
                                     <label for="firstname">First Name</label>
-                                    <input type="text" id="firstname" name="firstname" />
+                                    <input type="text" id="firstname" name="firstname"
+                                        required="true" />
                                 </div>
                                 <div>
                                     <label for="middlename">Middle Name</label>
-                                    <input type="text" id="middlename" name="middlename" />
+                                    <input type="text" id="middlename" name="middlename"
+                                        required="true" />
                                 </div>
                                 <div>
                                     <label for="lastname">Last Name</label>
-                                    <input type="text" id="lastname" name="lastname" />
+                                    <input type="text" id="lastname" name="lastname" required="true" />
                                 </div>
                             </div>
                             <div>
                                 <div>
                                     <label for="street">Street</label>
-                                    <input type="text" id="street" name="street" />
+                                    <input type="text" id="street" name="street" required="true" />
                                 </div>
                                 <div>
                                     <label for="housenumber">House Number</label>
-                                    <input type="text" id="housenumber" name="housenumber" />
+                                    <input type="text" id="housenumber" name="housenumber"
+                                        required="true" />
                                 </div>
                             </div>
                             <div>
                                 <div>
                                     <label for="city">City</label>
-                                    <input type="text" id="city" name="city" />
+                                    <input type="text" id="city" name="city" required="true" />
                                 </div>
                                 <div>
                                     <label for="state">State</label>
-                                    <input type="text" id="state" name="state" />
+                                    <input type="text" id="state" name="state" required="true" />
                                 </div>
                             </div>
                             <div>
                                 <div>
                                     <label for="country">Country</label>
-                                    <input type="text" id="country" name="country" />
+                                    <input type="text" id="country" name="country" required="true" />
                                 </div>
                             </div>
                             <div>
-                                <input type="submit" value="Submit" />
+                                <input type="submit" value="Hinzufügen" />
                             </div>
                         </form>
                     </section>

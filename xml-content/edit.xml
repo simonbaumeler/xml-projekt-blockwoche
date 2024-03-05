@@ -2,9 +2,10 @@
 <?xml-stylesheet type="text/xsl" href="/edit/edit.xsl"?>
 <page>
     <key>edit</key>
-    <title>Bearbeiten</title>
+    <title>Participant hinzufügen</title>
 
     <content>
-        <text>Bearbeiten</text>
+        <text>Auf dieser Seite ist es möglich Participants zu erstellen. Im Firefox klappt dies
+            leider nicht da es einen Bug im Input type=time gibt</text>
     </content>
 </page>

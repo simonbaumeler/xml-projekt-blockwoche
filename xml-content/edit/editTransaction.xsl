@@ -26,17 +26,17 @@
                         <form class="transaction-form" action="/addTransaction?id={id}"
                             method="post">
                             <label for="amount">Amount</label>
-                            <input type="number" id="amount" name="amount" />
+                            <input type="number" id="amount" name="amount" required="true" />
 
                             <label for="ratePerUnit">RatePerUnit</label>
-                            <input type="number" id="ratePerUnit" name="ratePerUnit" />
+                            <input type="number" id="ratePerUnit" name="ratePerUnit" required="true" />
 
                             <label for="date">Date</label>
-                            <input type="date" id="date" name="date" />
+                            <input type="date" id="date" name="date" required="true" />
                             <label for="time">Time</label>
-                            <input type="time" id="time" name="time" />
+                            <input type="time" id="time" name="time" required="true" />
 
-                            <input type="submit" value="Submit" />
+                            <input type="submit" value="Hinzufügen" />
                         </form>
                         <xsl:variable name="selectedId" select="id" />
                         <xsl:apply-templates

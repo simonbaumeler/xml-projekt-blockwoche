@@ -34,7 +34,8 @@ async function addParticipant(req, res, xsd) {
 
   const participant = doc.node("participant");
 
-  participant.node("id", randomUUID());
+  const id = randomUUID();
+  participant.node("id", id);
   participant.node("name", req.body.name);
   if (req.body.startDate && req.body.startTime) {
     participant.node(
@@ -71,7 +72,7 @@ async function addParticipant(req, res, xsd) {
     participants.addChild(participant);
 
     await database.write();
-    res.redirect("/participants");
+    res.redirect(`/participant?id=${id}`);
   } catch {
     res.status(500).send("Error when saving");
   } finally {

@@ -4,9 +4,9 @@
     <xsl:template match="/energie-data/participants/participant">
         <div class="participant-card">
             <div class="participant-card-header">
-                <a href="/participant?id={id}" class="title">
+                <div class="title">
                     <xsl:value-of select="name" />
-                </a>
+                </div>
                 <div class="owner-name">
                     <xsl:apply-templates select="address" />
                 </div>
@@ -15,6 +15,9 @@
                         <xsl:with-param name="dateTime" select="startDatetime" />
                     </xsl:call-template>
                 </div>
+                <a href="/participant?id={id}">
+                    Bearbeiten
+                </a>
             </div>
             <div class="participant-card-body">
                 <xsl:apply-templates select="energyTransactions">
