@@ -2,7 +2,9 @@
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-    <xsl:variable name="sites" select="'index:Home,statistic:Statistik,feature3:Feature3,report:Report generieren,participants:Participants,'"/> <!-- must end in ',' due to strange bug -->
+    <xsl:variable name="sites"
+        select="'index:Home,statistic:Statistik,edit:Participant Hinzufügen,report:Report generieren,participants:Participants,'" /> <!--
+    must end in ',' due to strange bug -->
 
     <xsl:template name="tokenizeSites">
         <xsl:param name="base"/>
@@ -18,7 +20,7 @@
                     <xsl:when test="/page/key = $tokenA">
                         <div class="navActiveDiv">
 
-                            <a href="#" class="active">
+                            <a href="/{$tokenA}" class="active">
                                 <xsl:value-of select="$tokenB" />
                             </a>
                         </div>
