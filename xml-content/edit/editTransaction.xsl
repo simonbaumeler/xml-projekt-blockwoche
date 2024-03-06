@@ -26,10 +26,12 @@
                         <form class="transaction-form" action="/addTransaction?id={id}"
                             method="post">
                             <label for="amount">Amount</label>
-                            <input type="number" id="amount" name="amount" required="true" />
+                            <input type="number" id="amount" name="amount" required="true"
+                                step="any" />
 
                             <label for="ratePerUnit">RatePerUnit</label>
-                            <input type="number" id="ratePerUnit" name="ratePerUnit" required="true" />
+                            <input type="number" id="ratePerUnit" name="ratePerUnit" required="true"
+                                step="any" min="0" />
 
                             <label for="date">Date</label>
                             <input type="date" id="date" name="date" required="true" />
