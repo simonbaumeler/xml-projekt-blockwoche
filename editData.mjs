@@ -116,8 +116,8 @@ async function addTransaction(req, res, xsd) {
       `${req.body.date}T${req.body.time}:00.000`
     );
   }
-  const amount = parseInt(req.body.amount);
-  const ratePerUnit = parseInt(req.body.ratePerUnit);
+  const amount = parseFloat(req.body.amount);
+  const ratePerUnit = parseFloat(req.body.ratePerUnit);
   const totalPrice = amount * ratePerUnit;
   energyTransaction.attr("totalPrice", totalPrice.toString());
 
@@ -145,7 +145,7 @@ async function addTransaction(req, res, xsd) {
         if (!totalPrice) {
           throw new Error("Invalid Database");
         }
-        return parseInt(totalPrice.value());
+        return parseFloat(totalPrice.value());
       })
       .reduce((acc, value) => acc + value, 0);
 
