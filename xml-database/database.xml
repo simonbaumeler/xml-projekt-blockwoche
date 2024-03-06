@@ -27,17 +27,15 @@
             <energyTransactions>
                 <energyTransaction energyType="wind" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="20" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.06" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="solar" amount="10" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.03" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="solar" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="-3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="-0.009" />
                 <energyTransaction energyType="water" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
                 <energyTransaction energyType="solar" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="10000" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="30" />
+                <energyTransaction energyType="electricity" amount="25" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.075" />
                 <energyTransaction energyType="electricity" amount="-20" ratePerUnit="0.05" timestamp="2024-02-08T19:00:00.000" totalPrice="-5" />
             </energyTransactions>
         </participant>
@@ -57,20 +55,20 @@
             </address>
 
             <energyTransactions>
+                <energyTransaction energyType="electricity" amount="10" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.030" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="12" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.036" />
+                <energyTransaction energyType="electricity" amount="-22" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="-0.066" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
                 <energyTransaction energyType="water" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
                 <energyTransaction energyType="wind" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="10000" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="30" />
-                <energyTransaction energyType="solar" amount="-2" ratePerUnit="0.05" timestamp="2024-02-08T19:00:00.000" totalPrice="-5" />
+                <energyTransaction energyType="electricity" amount="12" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.036" />
+                <energyTransaction energyType="solar" amount="-2" ratePerUnit="0.05" timestamp="2024-02-08T19:00:00.000" totalPrice="-0.1" />
             </energyTransactions>
         </participant>
         <participant>
@@ -94,15 +92,12 @@
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="6" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.018" />
                 <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
-                <energyTransaction energyType="electricity" amount="10000" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="30" />
-                <energyTransaction energyType="electricity" amount="-10" ratePerUnit="0.05" timestamp="2024-02-08T19:00:00.000" totalPrice="-5" />
+               <energyTransaction energyType="electricity" amount="3" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.009" />
+                <energyTransaction energyType="electricity" amount="7" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.021" />
+                <energyTransaction energyType="electricity" amount="44" ratePerUnit="0.003" timestamp="2024-02-08T14:00:00.000" totalPrice="0.132" />
+                <energyTransaction energyType="electricity" amount="-10" ratePerUnit="0.05" timestamp="2024-02-08T19:00:00.000" totalPrice="-0.5" />
             </energyTransactions>
         </participant>
     </participants>
